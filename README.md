@@ -1,4 +1,4 @@
-## Websocket Client and Server for Arduino Nano 33 IoT
+## Websocket client and server for the Arduino Nano 33 IoT
 
 This is a simple library that implements a Websocket client and server running on an Arduino Nano 33 IoT.
 
