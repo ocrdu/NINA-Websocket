@@ -1,0 +1,25 @@
+#######################################
+# Syntax Coloring Map For WiFiNINA
+#######################################
+
+#######################################
+# Library (KEYWORD1)
+#######################################
+
+WebSocketServer	KEYWORD1
+WebSocketClient	KEYWORD1
+
+#######################################
+# Methods and Functions (KEYWORD2)
+#######################################
+
+handshake	KEYWORD2
+getData	KEYWORD2
+sendData	KEYWORD2
+disconnectStream	KEYWORD2
+sendPing	KEYWORD2
+
+#######################################
+# Constants (LITERAL1)
+#######################################
+
