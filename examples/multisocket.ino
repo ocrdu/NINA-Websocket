@@ -96,7 +96,6 @@ void loop() {
 
   unsigned long currentMillis = millis();
   if ((currentMillis - previousMillis) > 1000) {
-    boolean oneIsActive = false;
     previousMillis = currentMillis;
     for (int i=0; i<maxClients; i++) {
       if (clients[i] && clients[i]->connected()) {
