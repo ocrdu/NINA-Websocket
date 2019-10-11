@@ -10,6 +10,42 @@
 #include "MD5.c"
 #endif
 
+WebSocketServer::WebSocketServer() {
+}
+
+WebSocketServer::WebSocketServer(Client* client) {
+  socket_client = client;
+}
+
+Client* WebSocketServer::client() {
+  return socket_client;
+}
+
+bool WebSocketServer::handshake() {
+  if (socket_client->connected()) {
+    #ifdef DEBUGGING
+    Serial.println(F("Client connected"));
+    #endif
+    if (analyzeRequest(BUFFER_LENGTH)) {
+      #ifdef DEBUGGING
+      Serial.println(F("Websocket established"));
+      #endif
+      return true;
+    } else {
+      #ifdef DEBUGGING
+      Serial.println(F("Invalid handshake"));
+      #endif
+      socket_client->print("HTTP/1.1 400 Bad Request\nContent-Type: text/plain; charset=utf-8\n\n400 Bad Request\n");
+      socket_client->flush();
+      delay(10);
+      socket_client->stop();
+      return false;
+    }
+  } else {
+    return false;
+  }
+}
+
 bool WebSocketServer::handshake(Client &client) {
   socket_client = &client;
   if (socket_client->connected()) {

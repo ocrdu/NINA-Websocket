@@ -73,8 +73,16 @@ http://tools.ietf.org/html/draft-hixie-thewebsocketprotocol-75
 class WebSocketServer {
 public:
 
+    // Constructors
+    WebSocketServer();
+    WebSocketServer(Client* client);
+    
+    // Returns a pointer to the WebSocketServer's client
+    Client* client();
+
     // Handle connection requests to validate and process/refuse
     // connections.
+    bool handshake();
     bool handshake(Client &client);
     
     // Get data off of the stream
