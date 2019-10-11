@@ -70,14 +70,13 @@ void loop() {
     for (int i=0; i<maxClients; i++) {
       if (!clients[i] || !clients[i]->connected()) {
         openSlot = i;
-        clients[i] = new WiFiClient(newClient);
+        clients[openSlot] = new WiFiClient(newClient);
+        Sprintln("  New client stored in clients[" + (String)openSlot + "]");
         break;
       }
     }
     
     if (openSlot > -1) {
-      //clients[openSlot] = new WiFiClient(newClient);
-      Sprintln("  New client stored in clients[" + (String)openSlot + "]");
       webSocketServers[openSlot] = new WebSocketServer(clients[openSlot]);
       if (webSocketServers[openSlot]->handshake()) {
         Sprintln("  Websocket handshake by webSocketServers[" + (String)openSlot + "] successfull");
