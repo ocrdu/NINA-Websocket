@@ -2,7 +2,7 @@
 
 This is a simple library that implements a Websocket client and server running on an Arduino Nano 33 IoT.
 
-Forked from from https://github.com/morrissinger/ESP8266-Websocket and checked to see if it worked with WiFiNINA.h. Main edit so far: see third item under "Notes".
+Forked from from https://github.com/morrissinger/ESP8266-Websocket and checked to see if it worked with WiFiNINA.h.
 
 ### Notes
 Inside of the WebSocketServer class there is a compiler directive to turn on support for the older "Hixie76" standard. If you don't need it, leave it off as it greatly increases the memory required.
